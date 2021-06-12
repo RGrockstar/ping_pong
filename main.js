@@ -21,8 +21,19 @@ var ball = {
     dy:3
 }
 
-function setup(){
-  var canvas =  createCanvas(700,600);
+function setup() {
+	canvas = createCanvas(1240,336);
+	canvas.parent('canvas');
+
+	video=createCapture(VIDEO);
+    video.size(800, 400);
+	video.parent('console');
+
+    poseNet=ml5.poseNet(video, modelLoaded);
+}
+
+function modelLoaded(){
+console.log('PoseNet is on');
 }
 
 

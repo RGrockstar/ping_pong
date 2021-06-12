@@ -27,3 +27,7 @@ video{
     background-position:center;
     padding: 25px;
 }
+canvas{
+border: solid 2px turquoise;
+border-radius: 15px;
+}
