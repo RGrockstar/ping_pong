@@ -23,6 +23,7 @@ var ball = {
 wristx=0;
 wristy=0;
 scorewrist=0;
+game_status=0;
 
 function setup() {
 	canvas = createCanvas(1240,336);
@@ -50,9 +51,13 @@ if(results.length>0){
 }
 }
 
+function start(){
+game_status="start";
+document.getElementById("status").innerHTML="game is loaded";
+}
 
 function draw(){
-
+if(game_status=="start"){
  background(0); 
 
  fill("black");
@@ -94,6 +99,7 @@ function draw(){
    
    //function move call which in very important
     move();
+}
 }
 
 
