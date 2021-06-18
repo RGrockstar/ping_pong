@@ -25,6 +25,10 @@ wristy=0;
 scorewrist=0;
 game_status=0;
 
+function preload(){
+paddle=loadSound("ball_touch_paddel.wav");
+missed=loadSound("missed.wav");
+}
 function setup() {
 	canvas = createCanvas(1240,336);
 	canvas.parent('canvas');
@@ -152,10 +156,12 @@ function move(){
   if (ball.x-2.5*ball.r/2< 0){
   if (ball.y >= paddle1Y&& ball.y <= paddle1Y + paddle1Height) {
     ball.dx = -ball.dx+0.5; 
+    paddle.play();
   }
   else{
     pcscore++;
     reset();
+    missed.play();
     navigator.vibrate(100);
   }
 }
@@ -196,4 +202,9 @@ function paddleInCanvas(){
   if(mouseY < 0){
     mouseY =0;
   }  
+}
+
+function restart(){
+pcscore=0;
+loop();
 }
